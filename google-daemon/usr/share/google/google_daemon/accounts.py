@@ -212,7 +212,7 @@ class Accounts(object):
         return
 
       # Create a temporary sudoers file with the contents we want.
-      sudoer_lines.append('%s ALL=NOPASSWD: ALL' % user)
+      sudoer_lines.append('%s ALL=(ALL) NOPASSWD: ALL' % user)
       sudoer_lines = [EnsureTrailingNewline(line) for line in sudoer_lines]
       (tmp_sudoers_fd, tmp_sudoers_fname) = tempfile.mkstemp()
       with self.os.fdopen(tmp_sudoers_fd, 'w+') as tmp_sudoer_f:
